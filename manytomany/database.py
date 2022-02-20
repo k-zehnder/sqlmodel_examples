@@ -26,16 +26,16 @@ def create_customers():
     session = session_factory()
     with session as session:
         for idx in range(100):
-            customer1 = Customer(
-                            first_name=fake.first_name(),
-                            last_name=fake.last_name(),
-                            address=fake.street_address(),
-                            city=fake.city(),
-                            postcode=fake.postcode(),
-                            email=fake.email()
-                        )
-            session.add(customer1)
+            customer = Customer(
+                first_name=fake.first_name(),
+                last_name=fake.last_name(),
+                address=fake.street_address(),
+                city=fake.city(),
+                postcode=fake.postcode(),
+                email=fake.email()
+            )
+            session.add(customer)
             session.commit()
-            session.refresh(customer1)
+            session.refresh(customer)
 
-            print(f"Customer #{idx}:", customer1)
+            print(f"Customer #{idx}:", customer)
