@@ -33,19 +33,14 @@ class CustomerBase(SQLModel):
     city: str = Field(default=None, primary_key=False)
     postcode: int = Field(default=None, primary_key=False)
     email: str = Field(default=None, primary_key=False)
-    time_created: datetime.datetime = Field(
-    sa_column=Column(
-        DateTime(timezone=True),
-        nullable=False
-    ))
-    
+
 class Customer(CustomerBase, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
 
     orders: List["Order"] = Relationship(back_populates="customer")          
                               
 class OrderBase(SQLModel):
-    time_created: datetime.datetime = Field(
+    order_date: datetime.datetime = Field(
     sa_column=Column(
         DateTime(timezone=True),
         nullable=False
@@ -63,11 +58,6 @@ class Order(OrderBase, table=True):
 class ProductBase(SQLModel):
     product_name: str
     price: int
-    time_created: datetime.datetime = Field(
-    sa_column=Column(
-        DateTime(timezone=True),
-        nullable=False
-    ))
     
 class Product(ProductBase, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)

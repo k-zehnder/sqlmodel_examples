@@ -32,8 +32,7 @@ def create_customers():
                             address=fake.street_address(),
                             city=fake.city(),
                             postcode=fake.postcode(),
-                            email=fake.email(),
-                            time_created=datetime.datetime.utcnow()
+                            email=fake.email()
                         )
             session.add(customer1)
             session.commit()
