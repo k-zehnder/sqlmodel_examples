@@ -1,0 +1,2 @@
+(base) batman@the-bank:~/Desktop/py/sqlmodel_examples$ python -m manytomany.app
+Customer #1: id=1 name='kevin' headquarters='ptown'
